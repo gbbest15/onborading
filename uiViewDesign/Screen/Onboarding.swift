@@ -42,7 +42,7 @@ how much love we put into it
                 }
                 Spacer()
                 ZStack {
-                  // PARTS OF THE CUSTOM BUTTON 
+                  // PARTS OF THE CUSTOM BUTTON
                   // 1. BACKGROUND (STATIC)
                   Capsule()
                     .fill(Color.white.opacity(0.2))
