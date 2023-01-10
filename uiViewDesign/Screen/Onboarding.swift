@@ -57,7 +57,7 @@ how much love we put into it
                     HStack {
                         Capsule()
                             .fill(Color("ColorRed"))
-                            .frame(width:  80)
+                            .frame(width: offsetButton + 80)
                         Spacer()
                     }
                     // 4. CIRCLE (DRAGGABLE)
