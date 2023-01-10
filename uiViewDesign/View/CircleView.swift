@@ -8,13 +8,27 @@
 import SwiftUI
 
 struct CircleView: View {
+    
+   @State var circulColor: Color
+   @State var widthHight :CGFloat
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        ZStack{
+            Circle()
+                .stroke(circulColor.opacity(0.2), lineWidth: 40)
+                .frame(minWidth: 200, minHeight: 200, alignment: .center)
+            Circle()
+                .stroke(circulColor.opacity(0.2), lineWidth: 80)
+                .frame(minWidth: 200, minHeight: 200, alignment: .center)
+        }.padding(45)
     }
 }
 
 struct CircleView_Previews: PreviewProvider {
     static var previews: some View {
-        CircleView()
+        ZStack {
+            Color("ColorBlue")
+                .ignoresSafeArea()
+            CircleView(circulColor: .white, widthHight: 200)
+        }
     }
 }

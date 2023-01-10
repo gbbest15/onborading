@@ -11,16 +11,41 @@ struct HomeView: View {
     @AppStorage("onboard")  var userOnboardingValue : Bool = true
     var body: some View {
         
-        Text("HomePage")
-//        VStack(spacing:20){
-//            Text("onborading")
-//            Button {
-//               userOnboardingValue = false
-//            } label: {
-//                Text("Click")
-//            }
-//
-//        }//: end of Vstack
+        ZStack{
+            VStack{
+                Spacer()
+                ZStack{
+                    CircleView(circulColor: .gray, widthHight: 200)
+                    Image("character-2")
+                        .resizable()
+                        .scaledToFit()
+                        .padding()
+                    
+                }
+                Text("The time that leads to mastery is dependent on the intensity of our focus.")
+                       .font(.title3)
+                       .fontWeight(.light)
+                       .foregroundColor(.secondary)
+                       .multilineTextAlignment(.center)
+                       .padding()
+                Spacer()
+                Button(action: {
+                    
+                }) {
+                    Image(systemName: "arrow.triangle.2.circlepath.circle.fill")
+                        .imageScale(.large)
+                    
+                    Text("Restart")
+                        .font(.system(.title3, design: .rounded))
+                        .fontWeight(.bold)
+                } //: BUTTON
+                .buttonStyle(.borderedProminent)
+                .buttonBorderShape(.capsule)
+                .controlSize(.large)
+            
+    
+            }
+        }
     }
 }
 

@@ -3,7 +3,7 @@
 //  uiViewDesign
 //
 //  Created by G BEN on 07/01/2023.
-//
+
 
 import SwiftUI
 
@@ -30,12 +30,7 @@ how much love we put into it
                 .multilineTextAlignment(.center)
                 Spacer()
                 ZStack{
-                    Circle()
-                        .stroke(.white.opacity(0.2), lineWidth: 40)
-                        .frame(minWidth: 260, minHeight: 260, alignment: .center)
-                    Circle()
-                        .stroke(.white.opacity(0.2), lineWidth: 80)
-                        .frame(minWidth: 260, minHeight: 260, alignment: .center)
+                    CircleView(circulColor: .white, widthHight: 200)
                     Image("character-1")
                         .resizable()
                         .scaledToFit()
