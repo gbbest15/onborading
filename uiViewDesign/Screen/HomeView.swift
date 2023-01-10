@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @AppStorage("onboard")  var userOnboardingValue : Bool = true
+    @State private var isAnimating: Bool = false
     var body: some View {
         
         ZStack{
@@ -20,14 +21,21 @@ struct HomeView: View {
                         .resizable()
                         .scaledToFit()
                         .padding()
+                        .offset(y: isAnimating ? 35 : -35)
+                        .animation(
+                            Animation
+                                .easeInOut(duration: 4)
+                                .repeatForever()
+                            , value: isAnimating
+                        )
                     
                 }
                 Text("The time that leads to mastery is dependent on the intensity of our focus.")
-                       .font(.title3)
-                       .fontWeight(.light)
-                       .foregroundColor(.secondary)
-                       .multilineTextAlignment(.center)
-                       .padding()
+                    .font(.title3)
+                    .fontWeight(.light)
+                    .foregroundColor(.secondary)
+                    .multilineTextAlignment(.center)
+                    .padding()
                 Spacer()
                 Button(action: {
                     
@@ -42,10 +50,15 @@ struct HomeView: View {
                 .buttonStyle(.borderedProminent)
                 .buttonBorderShape(.capsule)
                 .controlSize(.large)
-            
-    
+                
+                
             }
         }
+        .onAppear(perform: {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5, execute: {
+                isAnimating = true
+            })
+        })
     }
 }
 
